@@ -1,0 +1,30 @@
+#page {
+  @include flex-grid-row();
+  @include flex-align(center, middle);
+  margin-top: 3rem;
+
+  .main-content {
+    @include breakpoint(small) {
+      @include flex-grid-column(8);
+    }
+
+    @include breakpoint(medium) {
+      @include flex-grid-column(6);
+    }
+  }
+}
+
+#pageColumns {
+  @include flex-grid-row();
+  @include flex-align(center, middle);
+  margin-top: 3rem;
+
+  .main-content {
+    @include breakpoint(small) {
+      @include flex-grid-column(8);
+    }
+  }
+  #columnContent img {
+    width: 100%;
+  }
+}

@@ -1,0 +1,27 @@
+h1 {
+  @include baseline(4rem);
+}
+h2 {
+  text-transform: uppercase;
+  @include baseline(3rem);
+}
+h3 {
+  text-transform: uppercase;
+  @include baseline(2rem, 2);
+}
+h4 {
+  @include baseline(1.5rem);
+}
+h5 {
+  font-family: $sans;
+  @include baseline(1rem);
+}
+h6 {
+  @include baseline(.9rem);
+  margin-bottom: -0.5rem!important;
+  font-weight: 800;
+}
+p {
+  font-family: $sans-alt;
+  @include baseline(1rem);
+}

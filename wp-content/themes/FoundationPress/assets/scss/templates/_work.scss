@@ -1,0 +1,319 @@
+// WORK HEADER
+.work-navigation {
+  width: 115%;
+  left: -7.5%;
+  height: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background: $black;
+  @include flex;
+
+  @include breakpoint(small only) {
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    left: 0;
+  }
+
+  li {
+    flex: 1 0 auto;
+    transition: all 1s ease;
+    @include flex;
+
+    background-size: cover!important;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+    transform: skew(-20deg, 0);
+
+    @include breakpoint(small only) {
+      flex: 1 0 auto;
+      width: 100%;
+      transform: skew(0deg, 0deg);
+
+      &:hover, &.is-active {
+        flex: 2 0 auto!important;
+        .cover-bg {
+          transform: scale(1.2);
+        }
+        a span {
+          transform: translate(-100px, 0);
+        }
+      }
+    }
+    &:hover, &.is-active {
+      flex: 2.5 0 auto;
+      .cover-bg {
+        opacity: 1;
+      }
+    }
+    .cover-bg {
+      z-index: 1;
+      width: 200%;
+      left: -50%; right: 0;
+      margin: auto;
+      transition: all 0.5s ease;
+      transform: scale(1.2) skew(20deg, 0) translate3d(0,0,0);
+      opacity: 0.5;
+      @include breakpoint(small only) {
+        width: 100%;
+        height: 200%;
+        top: -50%;
+        left: 0; right: 0;
+        background-size: 100% auto!important;
+        transform: scale(1.2) skew(0, 0deg) translate3d(0,0,0);
+      }
+    }
+    a {
+      width: 100%;
+      display: block;
+      position: relative;
+      z-index: 100;
+      background: none!important;
+      transform: skew(20deg, 0) translate3d(0,0,0);
+      &:hover {
+        background: none;
+      }
+      @include breakpoint(small only) {
+        transform: skew(0, 0deg) translate3d(0,0,0);
+      }
+      span {
+        display: block;
+        width: 180px;
+        position: absolute;
+        transition: all 1s ease;
+        height: 32px;
+        line-height: 24px;
+        right: 96px;
+        bottom: 48px;
+        text-align: center;
+        color: $white;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 1px;
+        font-weight: 700;
+        padding: 4px 12px;
+        background: $primary-color;
+
+        @include breakpoint(small only) {
+          right: 48px;
+          bottom: 48px;
+        }
+      }
+    }
+  }
+}
+
+// TABS OVERIDE
+.tabs-content {
+  border: none;
+  .tabs-panel {
+    padding: 0;
+  }
+}
+
+.tabs {
+  border: none;
+  .tabs-title {
+    a {
+      padding: 1rem;
+      text-transform: uppercase;
+      transition: all 0.5s ease;
+      color: $black;
+      letter-spacing: 1px;
+      @include breakpoint(small only) {
+        font-size: 11px;
+        letter-spacing: .5px;
+      }
+      &:hover {
+        background: $light-gray;
+      }
+    }
+    &.is-active {
+      a {
+        background: $primary-color;
+        color: $white;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+// WORK POST
+.work-post {
+  margin-bottom: 24px;
+  a {
+    @include aspect-ratio(16,9);
+    display: block;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    &:hover {
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+    .tile img {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      left: 0; right: 0;
+      bottom: 0; top: 0;
+      margin: auto;
+    }
+  }
+
+  hgroup {
+    text-align: right;
+    position: absolute;
+    padding: 0 24px;
+    bottom: 24px;
+    right: 0;
+    width: 100%;
+    height: auto;
+    z-index: 100;
+    h5 {
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0;
+      padding: 4px 8px;
+      font-weight: 700;
+      color: $white;
+      float: right;
+      display: inline-block;
+      background: $primary-color;
+    }
+    h6 {
+      font-weight: 400;
+      @include baseline(.75rem);
+      padding: 4px 8px;
+      color: $light-gray;
+      clear: both;
+      float: right;
+      display: inline-block;
+      background: $black;
+      text-transform: uppercase;
+      transform: translate(-8px, -4px);
+    }
+  }
+}
+
+// reel
+.reel {
+  padding: 0 0 2rem;
+  .reel-video-wrap {
+    padding-bottom: 1rem;
+    @include breakpoint(large){
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    p {
+      margin: 0;
+      padding: 0;
+    }
+    .responsive-embed {
+      margin-bottom: 0!important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+      &:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      }
+    }
+  }
+  .reel-description {
+    padding: 2rem 3rem;
+    @include breakpoint(medium){
+      padding: 0;
+    }
+    h3 {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+
+// REVEAL
+
+.reveal {
+  outline: none;
+  padding-bottom: 5rem;
+  @include breakpoint(small only){
+    padding-top: 4rem;
+  }
+  .hgroup {
+    h3 {
+      float: left;
+      margin: 0;
+    }
+    h4 {
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: $dark-gray;
+      font-size: 1rem;
+      margin: 0;
+      clear: both;
+      padding-top: 0;
+      @include breakpoint(medium){
+        clear: none;
+        float: right;
+        padding-top: 1.5rem;
+      }
+    }
+  }
+  .responsive-embed {
+    clear: both;
+  }
+  .close-button {
+    left: 0;
+    right: 0;
+    top: auto;
+    font-size: 1rem;
+    width: 80px; height: 80px;
+    margin: 0 auto;
+    div {
+      display: block;
+      letter-spacing: 1px;
+      font-family: $sans;
+      left: 0; right: 0;
+      margin: 0 auto;
+      position: absolute;
+      bottom: 2rem;
+      span {
+        color: $black;
+        position: relative;
+        z-index: 100;
+        transition: all 0.5s ease;
+      }
+      svg {
+        opacity: .1;
+        height: 80px;
+        width: 80px;
+        transform: rotate(45deg);
+        color: rgba($primary-color, 0.25);
+        display: block;
+        font-style: normal;
+        position: absolute;
+        top: 0; bottom: 0;
+        left: 0; right: 0;
+        margin: auto;
+        transition: all 1s ease;
+      }
+    }
+    &:hover {
+      div {
+        span {
+          letter-spacing: 4px;
+        }
+        svg {
+          z-index: 0;
+          opacity: 0.66;
+          path {
+            fill: $primary-color;
+          }
+          transform: rotate(405deg);
+        }
+      }
+    }
+  }
+}

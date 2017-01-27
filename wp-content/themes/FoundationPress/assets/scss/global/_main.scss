@@ -1,0 +1,61 @@
+// MIXINS
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .tile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.para-parent {
+  position: relative;
+  overflow: hidden;
+  > * {
+    position: relative;
+  }
+}
+.parallax {
+  position: absolute;
+  top: 0;
+  left:0;
+  right:0;
+  width: 100%;
+  height: 100%;
+  background-size: cover!important;
+  background-position: center;
+  transform: scale(1.5);
+  opacity: 1;
+  transition: opacity 1s ease;
+  &.invisible {
+    opacity: 0;
+  }
+}
+
+.cover-bg {
+  position: absolute;
+  top: 0;
+  left:0;
+  right:0;
+  width: 100%;
+  height: 100%;
+  background-size: cover!important;
+  background-position: center;
+  transform: scale(1.5);
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+//flex
+.flex {
+  @include flex;
+  @include flex-align(center, middle);
+}
